@@ -243,7 +243,14 @@ class TestDifferentialEvolutionSolver(object):
         bounds = [(0, 2), (0, 2)]
 
         def callback(param, convergence=0.):
-            return True
+            # This is a very round-about way to 
+            # check this property, but it helps
+            # to ensure the code is tested like
+            # it will be used: ie, with a numpy
+            # bool (which, notably, will not be
+            # the same identity so `is`  cannot
+            # be used.
+            return (np.array([1]) == 1).astype(bool)[0]
 
         result = differential_evolution(rosen, bounds, callback=callback)
 

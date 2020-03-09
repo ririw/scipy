@@ -996,7 +996,7 @@ class TestDifferentialEvolutionSolver(object):
             sup.filter(UserWarning)
             res = differential_evolution(f, bounds, strategy='rand1bin',
                                      seed=1234, constraints=constraints,
-                                     popsize=3)
+                                     popsize=6)
 
         f_opt = 7049.248
 
